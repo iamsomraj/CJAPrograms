@@ -33,7 +33,7 @@ public class CalculateProfitUtil {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the number of customers: ");
 		int cust = sc.nextInt();
-		System.out.println("Total income: " + calculateProfit(cust));
+		System.out.println("Total income: $" + calculateProfit(cust));
 	}
 
 }
