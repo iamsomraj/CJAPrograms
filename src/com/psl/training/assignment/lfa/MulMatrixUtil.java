@@ -1,4 +1,4 @@
-package com.psl.training.assignment;
+package com.psl.training.assignment.lfa;
 
 public class MulMatrixUtil {
 	public static int SIZE = 12;
