@@ -16,6 +16,11 @@ public class IsPresentUtil {
 
 	public static HashMap<String, String> shop = new HashMap<String, String>();
 
+	/**
+	 * Initialises the shop and returns all the product names
+	 * 
+	 * @return String[]
+	 */
 	public static String[] initProductNames() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the number of products: ");
@@ -37,6 +42,13 @@ public class IsPresentUtil {
 		return pdts;
 	}
 
+	/**
+	 * Checks if the keyword is present for a product or not
+	 * 
+	 * @param productNames
+	 * @param keyword
+	 * @return boolean
+	 */
 	public static boolean isPresent(String[] productNames, String keyword) {
 		for (String pdt : productNames) {
 			if (shop.get(pdt).equals(keyword)) {
