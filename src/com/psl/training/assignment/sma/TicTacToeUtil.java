@@ -16,6 +16,10 @@ public class TicTacToeUtil {
 		}
 	}
 
+	public static boolean isValid(int i, int j) {
+		return (i >= 0 && i <= 2) && (j >= 0 && j <= 2);
+	}
+
 	public static boolean isOccupied(int i, int j) {
 		if (board[i][j] != '-') {
 			return true;
@@ -38,20 +42,25 @@ public class TicTacToeUtil {
 		int row = sc.nextInt();
 		System.out.println("Enter col:");
 		int col = sc.nextInt();
-		if (isOccupied(row, col)) {
-			System.out.println("Position is occupied!");
+		if(!isValid(row, col)) {
+			System.out.println("Position is invalid!");
 			takeInput(symbol);
 		} else {
-			if (symbol == 'X') {
-				takeInputX(row, col);
+			if (isOccupied(row, col)) {
+				System.out.println("Position is occupied!");
+				takeInput(symbol);
 			} else {
-				takeInputO(row, col);
-			}
-			if (hasWon(symbol, row, col)) {
-				display();
-				System.out.println(symbol + " has won");
-				System.out.println("Thanks for playing!");
-				System.exit(25);
+				if (symbol == 'X') {
+					takeInputX(row, col);
+				} else {
+					takeInputO(row, col);
+				}
+				if (hasWon(symbol, row, col)) {
+					display();
+					System.out.println(symbol + " has won");
+					System.out.println("Thanks for playing!");
+					System.exit(25);
+				}
 			}
 		}
 	}
