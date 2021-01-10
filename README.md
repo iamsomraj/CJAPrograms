@@ -4,7 +4,8 @@ I have created this repository for Core Java Training assignments. This reposito
 
 ## Contents
 
-1. Language Fundamental Assignments
+1. [Language Fundamental Assignments](/src/com/psl/training/assignment/lfa)
+2. [String Manipulation & Array Assignments](/src/com/psl/training/assignment/sma)
 
 ## Developer
 
