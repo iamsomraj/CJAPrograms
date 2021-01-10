@@ -1,5 +1,6 @@
 package com.psl.training.assignment.sma;
 
+import java.util.Scanner;
 
 /**
  * Assignment Date 10.1.21 Write a function to find various combinations of
