@@ -1,8 +1,5 @@
 package com.psl.training.assignment.sma;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
 
 /**
  * Assignment Date 10.1.21 Write a function to find various combinations of
@@ -29,7 +26,7 @@ import java.util.Scanner;
  */
 public class GetCombUtil {
 
-	/** 
+	/**
 	 * Generates combinations in a recursive manner
 	 * 
 	 * @param str
