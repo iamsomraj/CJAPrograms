@@ -11,6 +11,12 @@ import java.util.Scanner;
  */
 public class TotalCharsUtil {
 
+	/**
+	 * Calculates characters
+	 * 
+	 * @param str
+	 * @return int
+	 */
 	public static int findTotalChars(String str) {
 		return str.length();
 	}

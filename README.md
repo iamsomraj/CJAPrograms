@@ -7,6 +7,7 @@ I have created this repository for Core Java Training assignments. This reposito
 1. [Language Fundamental Assignments](/src/com/psl/training/assignment/lfa)
 2. [String Manipulation & Array Assignments](/src/com/psl/training/assignment/sma)
 3. [Matrix Utility](/src/com/psl/training/assignment/sma/MatrixUtil.java)
+4. [Assignment 1](/src/com/psl/training/assignment/one/)
 
 ## Developer
 
