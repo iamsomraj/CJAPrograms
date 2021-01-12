@@ -3,7 +3,7 @@ package com.psl.training.assignment.oops;
 import java.util.Scanner;
 
 /**
- * Create a class Medicine to represent a drug manufactured by a pharmaceutical
+ * Assignment Date 12.1.21 Create a class Medicine to represent a drug manufactured by a pharmaceutical
  * company. Provide a function displayLabel() in this class to print Name and
  * address of the company.
  * 
