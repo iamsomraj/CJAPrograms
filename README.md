@@ -9,6 +9,8 @@ I have created this repository for Core Java Training assignments. This reposito
 3. [Matrix Utility](/src/com/psl/training/assignment/sma/MatrixUtil.java)
 4. [Assignment 1](/src/com/psl/training/assignment/one/)
 5. [OOPS - Medicine](/src/com/psl/training/assignment/oops/TestMedicineUtil.java)
+6. [OOPS - College Department](/src/com/psl/training/assignment/oops/CollegeDeptUtil.java)
+7. [OOPS - Animals](/src/com/psl/training/assignment/oops/AnimalUtil.java)
 
 ## Developer
 
