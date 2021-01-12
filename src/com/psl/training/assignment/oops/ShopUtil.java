@@ -1,5 +1,7 @@
 package com.psl.training.assignment.oops;
 
+import java.util.Scanner;
+
 /**
  * Assignment 12.1.21 Abc shop deals with trading of various products. Every
  * product has product id, product name and serial number. Some products like
@@ -88,7 +90,58 @@ class Hardware extends Product {
 public class ShopUtil {
 
 	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the number of products: ");
+		Product products[] = new Product[Integer.parseInt(sc.nextLine())];
+		for (int i = 0; i < products.length; i++) {
+			System.out.println("Enter 1 for Software: \nEnter 2 for Hardware: ");
+			switch (Integer.parseInt(sc.nextLine())) {
+			case 1:
+				System.out.println("Enter details for Software:\n\n");
+				System.out.println("Product ID: ");
+				String productId = sc.nextLine();
+				System.out.println("Product Name: ");
+				String productName = sc.nextLine();
+				System.out.println("Serial Number: ");
+				String serialNumber = sc.nextLine();
+				System.out.println("Operating System: ");
+				String operatingSystem = sc.nextLine();
+				System.out.println("Memory: ");
+				String memory = sc.nextLine();
+				System.out.println("License Key: ");
+				String licenseKey = sc.nextLine();
+				products[i] = new Software(productId, productName, serialNumber, operatingSystem, memory, licenseKey);
+				break;
 
+			case 2:
+				System.out.println("Enter details for Hardware:\n\n");
+				System.out.println("Product ID: ");
+				String productId2 = sc.nextLine();
+				System.out.println("Product Name: ");
+				String productName2 = sc.nextLine();
+				System.out.println("Serial Number: ");
+				String serialNumber2 = sc.nextLine();
+				System.out.println("Dimensions: ");
+				String dimensions = sc.nextLine();
+				System.out.println("Capacity: ");
+				String capacity = sc.nextLine();
+				System.out.println("Brand: ");
+				String brand = sc.nextLine();
+				System.out.println("Power Supply Requirements:");
+				String powerSupplyRequirements = sc.nextLine();
+				System.out.println("Battery Backup: ");
+				String batteryBackup = sc.nextLine();
+				products[i] = new Hardware(productId2, productName2, serialNumber2, dimensions, capacity, brand,
+						powerSupplyRequirements, batteryBackup);
+				break;
+
+			}
+		}
+
+		System.out.println("Products are displayed: ");
+		for (Product pdt : products) {
+			System.out.println(pdt);
+		}
 	}
 
 }
