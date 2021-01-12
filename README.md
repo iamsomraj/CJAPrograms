@@ -11,6 +11,7 @@ I have created this repository for Core Java Training assignments. This reposito
 5. [OOPS - Medicine](/src/com/psl/training/assignment/oops/TestMedicineUtil.java)
 6. [OOPS - College Department](/src/com/psl/training/assignment/oops/CollegeDeptUtil.java)
 7. [OOPS - Animals](/src/com/psl/training/assignment/oops/AnimalUtil.java)
+8. [OOPS - Shop](/src/com/psl/training/assignment/oops/ShopUtil.java)
 
 ## Developer
 
