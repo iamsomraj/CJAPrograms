@@ -12,6 +12,10 @@ I have created this repository for Core Java Training assignments. This reposito
 6. [OOPS - College Department](/src/com/psl/training/assignment/oops/CollegeDeptUtil.java)
 7. [OOPS - Animals](/src/com/psl/training/assignment/oops/AnimalUtil.java)
 8. [OOPS - Shop](/src/com/psl/training/assignment/oops/ShopUtil.java)
+9. Case Study
+   [Canvas](/src/com/psl/training/assignment/csoops/canvas)
+   [Shapes](/src/com/psl/training/assignment/csoops/shapes)
+   [CanvasUtil](/src/com/psl/training/assignment/csoops/test/CanvasUtil.java)
 
 ## Developer
 
