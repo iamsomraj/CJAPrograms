@@ -30,7 +30,7 @@ interface Temporary {
 }
 
 class Person implements IPerson {
-
+	String name;
 }
 
 class Student extends Person {
