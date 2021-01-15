@@ -3,9 +3,9 @@ package com.psl.training.assignment.oms;
 public class CustomerTest {
 
 	public static void main(String[] args) {
-		Customer customer1 = new Customer("1", "Aa Aaa");
-		Customer customer2 = new Customer("2", "Bb Bbb");
-		Customer customer3 = new Customer("3", "Cc Ccc");
+		Customer customer1 = new Customer(1, "Aa Aaa");
+		Customer customer2 = new Customer(2, "Bb Bbb");
+		Customer customer3 = new Customer(3, "Cc Ccc");
 		
 		customer1.setPhoneNumbers("1111111111", "1111111111", "1111111111");
 		customer1.setPrintingAddress("11", "11", "11", "11");

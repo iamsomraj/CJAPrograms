@@ -1,9 +1,10 @@
 package com.psl.training.assignment.oms;
 
 public class Customer {
-	String id, name, homePhone, cellPhone, workPhone, street, city, state, zip;
+	int id;
+	String name, homePhone, cellPhone, workPhone, street, city, state, zip;
 
-	public Customer(String id, String name) {
+	public Customer(int id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
