@@ -1,8 +1,11 @@
 package com.psl.training.assignment.oms;
 
+import com.psl.training.assignment.invs.PurchaseOrder;
+
 public class Customer {
 	int id;
 	String name, homePhone, cellPhone, workPhone, street, city, state, zip;
+	PurchaseOrder[] purchaseOrders;
 
 	public Customer(int id, String name) {
 		super();
@@ -41,6 +44,14 @@ public class Customer {
 
 	void printCustomerFields() {
 		System.out.println(this.toString());
+	}
+
+	void print() {
+		printCustomerFields();
+	}
+
+	PurchaseOrder[] getPurchaseOrder() {
+		return purchaseOrders;
 	}
 
 }
