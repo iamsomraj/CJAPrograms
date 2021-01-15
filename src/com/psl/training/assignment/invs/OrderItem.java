@@ -13,4 +13,10 @@ public class OrderItem {
 	double getTotal() {
 		return stockItem.itemPrice * numberOfItems;
 	}
+
+	@Override
+	public String toString() {
+		return "OrderItem [numberOfItems=" + numberOfItems + ", stockItem=" + stockItem + "]";
+	}
+
 }

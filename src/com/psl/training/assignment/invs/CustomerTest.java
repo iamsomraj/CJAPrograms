@@ -1,4 +1,4 @@
-package com.psl.training.assignment.oms;
+package com.psl.training.assignment.invs;
 
 public class CustomerTest {
 

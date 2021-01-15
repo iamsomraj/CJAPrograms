@@ -1,6 +1,6 @@
-package com.psl.training.assignment.oms;
+package com.psl.training.assignment.invs;
 
-import com.psl.training.assignment.invs.PurchaseOrder;
+import java.util.Arrays;
 
 public class Customer {
 	int id;
@@ -17,7 +17,7 @@ public class Customer {
 	public String toString() {
 		return "Customer [id=" + id + ", name=" + name + ", homePhone=" + homePhone + ", cellPhone=" + cellPhone
 				+ ", workPhone=" + workPhone + ", street=" + street + ", city=" + city + ", state=" + state + ", zip="
-				+ zip + "]";
+				+ zip + ", purchaseOrders=" + Arrays.toString(purchaseOrders) + "]";
 	}
 
 	void printPhoneNumbers() {
@@ -29,14 +29,14 @@ public class Customer {
 		System.out.println("Customer [street=" + street + ", city=" + city + ", state=" + state + ", zip=" + zip + "]");
 	}
 
-	void setPrintingAddress(String street, String city, String state, String zip) {
+	public void setPrintingAddress(String street, String city, String state, String zip) {
 		this.street = street;
 		this.city = city;
 		this.state = state;
 		this.zip = zip;
 	}
 
-	void setPhoneNumbers(String homePhone, String cellPhone, String workPhone) {
+	public void setPhoneNumbers(String homePhone, String cellPhone, String workPhone) {
 		this.homePhone = homePhone;
 		this.cellPhone = cellPhone;
 		this.workPhone = workPhone;
@@ -50,8 +50,24 @@ public class Customer {
 		printCustomerFields();
 	}
 
+	public double getTotalSales() {
+		double sum = 0;
+		if (purchaseOrders == null) {
+			return 0d;
+		}
+		for (int i = 0; i < purchaseOrders.length; i++) {
+			PurchaseOrder purchaseOrder = purchaseOrders[i];
+			sum += purchaseOrder.sumItems();
+		}
+		return sum;
+	}
+
 	PurchaseOrder[] getPurchaseOrder() {
 		return purchaseOrders;
+	}
+
+	public void setPurchaseOrder(PurchaseOrder[] orders) {
+		this.purchaseOrders = orders;
 	}
 
 }

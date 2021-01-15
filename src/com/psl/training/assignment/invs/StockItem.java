@@ -16,6 +16,12 @@ public class StockItem {
 		this.unit = unit;
 	}
 
+	@Override
+	public String toString() {
+		return "StockItem [itemNumber=" + itemNumber + ", itemDescription=" + itemDescription + ", itemPrice="
+				+ itemPrice + ", quantity=" + quantity + ", unit=" + unit + "]";
+	}
+
 	int getQuantity() {
 		return quantity;
 	}
