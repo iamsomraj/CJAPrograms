@@ -16,7 +16,7 @@ public class OrderItem {
 
 	@Override
 	public String toString() {
-		return "OrderItem [numberOfItems=" + numberOfItems + ", stockItem=" + stockItem + "]";
+		return "\n\nOrderItem\n[numberOfItems=" + numberOfItems + ",\n stockItem=" + stockItem + "\n]";
 	}
 
 }

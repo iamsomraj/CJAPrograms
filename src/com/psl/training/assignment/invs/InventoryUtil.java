@@ -99,7 +99,10 @@ public class InventoryUtil {
 		
 		System.out.println("Details of customers: ");
 		for (Customer cust : new Customer[] { jamie, bill, joe }) {
+			System.out.println();
 			System.out.println(cust);
+			System.out.println();
+
 		}
 
 	}

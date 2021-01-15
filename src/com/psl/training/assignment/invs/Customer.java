@@ -15,9 +15,9 @@ public class Customer {
 
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", name=" + name + ", homePhone=" + homePhone + ", cellPhone=" + cellPhone
-				+ ", workPhone=" + workPhone + ", street=" + street + ", city=" + city + ", state=" + state + ", zip="
-				+ zip + ", purchaseOrders=" + Arrays.toString(purchaseOrders) + "]";
+		return "\n\nCustomer\n[id=" + id + ",\n name=" + name + ",\n homePhone=" + homePhone + ",\n cellPhone=" + cellPhone
+				+ ",\n workPhone=" + workPhone + ",\n street=" + street + ",\n city=" + city + ",\n state=" + state + ",\n zip="
+				+ zip + ",\n purchaseOrders=" + Arrays.toString(purchaseOrders) + "\n]";
 	}
 
 	void printPhoneNumbers() {
@@ -29,14 +29,14 @@ public class Customer {
 		System.out.println("Customer [street=" + street + ", city=" + city + ", state=" + state + ", zip=" + zip + "]");
 	}
 
-	public void setPrintingAddress(String street, String city, String state, String zip) {
+	void setPrintingAddress(String street, String city, String state, String zip) {
 		this.street = street;
 		this.city = city;
 		this.state = state;
 		this.zip = zip;
 	}
 
-	public void setPhoneNumbers(String homePhone, String cellPhone, String workPhone) {
+	void setPhoneNumbers(String homePhone, String cellPhone, String workPhone) {
 		this.homePhone = homePhone;
 		this.cellPhone = cellPhone;
 		this.workPhone = workPhone;
@@ -50,7 +50,7 @@ public class Customer {
 		printCustomerFields();
 	}
 
-	public double getTotalSales() {
+	double getTotalSales() {
 		double sum = 0;
 		if (purchaseOrders == null) {
 			return 0d;
@@ -66,7 +66,7 @@ public class Customer {
 		return purchaseOrders;
 	}
 
-	public void setPurchaseOrder(PurchaseOrder[] orders) {
+	void setPurchaseOrder(PurchaseOrder[] orders) {
 		this.purchaseOrders = orders;
 	}
 

@@ -21,7 +21,7 @@ public class PurchaseOrder {
 		return true;
 	}
 
-	public double sumItems() {
+	double sumItems() {
 		double sum = 0d;
 		for (int i = 0; i < orderItems.length; i++) {
 			OrderItem orderItem = orderItems[i];
@@ -45,8 +45,8 @@ public class PurchaseOrder {
 
 	@Override
 	public String toString() {
-		return "PurchaseOrder [poNumber=" + poNumber + ", orderDate=" + orderDate + ", shipDate=" + shipDate
-				+ ", orderItems=" + Arrays.toString(orderItems) + "]";
+		return "\n\nPurchaseOrder\n[poNumber=" + poNumber + ",\n orderDate=" + orderDate + ",\n shipDate=" + shipDate
+				+ ",\n orderItems=" + Arrays.toString(orderItems) + "\n]";
 	}
 
 }
