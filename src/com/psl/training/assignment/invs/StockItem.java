@@ -7,19 +7,31 @@ public class StockItem {
 	int quantity;
 	String unit;
 
-	public StockItem(int itemNumber, String itemDescription, double itemPrice, int quantity, String unit) {
+	enum Unit {
+		KG, GALLON, NO, GM;
+	}
+
+	public StockItem(int itemNumber, String itemDescription, double itemPrice, int quantity, Unit unit) {
 		super();
 		this.itemNumber = itemNumber;
 		this.itemDescription = itemDescription;
 		this.itemPrice = itemPrice;
 		this.quantity = quantity;
-		this.unit = unit;
+		if (unit == Unit.KG) {
+			this.unit = "kilograms";
+		} else if (unit == Unit.GALLON) {
+			this.unit = "gallons";
+		} else if (unit == Unit.GM) {
+			this.unit = "grams";
+		} else if (unit == Unit.NO) {
+			this.unit = "numbers";
+		}
 	}
 
 	@Override
 	public String toString() {
-		return "\n\nStockItem\n[itemNumber=" + itemNumber + ",\n itemDescription=" + itemDescription + ",\n itemPrice="
-				+ itemPrice + ",\n quantity=" + quantity + ",\n unit=" + unit + "\n]";
+		return "StockItem [itemNumber=" + itemNumber + ", itemDescription=" + itemDescription + ", itemPrice="
+				+ itemPrice + ", quantity=" + quantity + ", unit=" + unit + "]";
 	}
 
 	int getQuantity() {

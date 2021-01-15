@@ -15,9 +15,9 @@ public class Customer {
 
 	@Override
 	public String toString() {
-		return "\n\nCustomer\n[id=" + id + ",\n name=" + name + ",\n homePhone=" + homePhone + ",\n cellPhone=" + cellPhone
-				+ ",\n workPhone=" + workPhone + ",\n street=" + street + ",\n city=" + city + ",\n state=" + state + ",\n zip="
-				+ zip + ",\n purchaseOrders=" + Arrays.toString(purchaseOrders) + "\n]";
+		return "Customer [id=" + id + ", name=" + name + ", homePhone=" + homePhone + ", cellPhone=" + cellPhone
+				+ ", workPhone=" + workPhone + ", street=" + street + ", city=" + city + ", state=" + state + ", zip="
+				+ zip + ", purchaseOrders=" + Arrays.toString(purchaseOrders) + "]";
 	}
 
 	void printPhoneNumbers() {
@@ -48,6 +48,18 @@ public class Customer {
 
 	void print() {
 		printCustomerFields();
+	}
+
+	void printInvoice() {
+		System.out.println("Invoice for " + name.toUpperCase() + ": ");
+		if (purchaseOrders != null) {
+			for (int i = 0; i < purchaseOrders.length; i++) {
+				PurchaseOrder purchaseOrder = purchaseOrders[i];
+				System.out.println(
+						purchaseOrder.orderDate + " - " + purchaseOrder.shipDate + " $" + purchaseOrder.sumItems());
+			}
+		}
+		System.out.println("Total: $" + getTotalSales());
 	}
 
 	double getTotalSales() {

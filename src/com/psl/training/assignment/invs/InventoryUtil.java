@@ -2,6 +2,8 @@ package com.psl.training.assignment.invs;
 
 import java.util.Date;
 
+import com.psl.training.assignment.invs.StockItem.Unit;
+
 /**
  * Date 15.1.21 Assignment Create StockItem class
  * 
@@ -48,11 +50,11 @@ public class InventoryUtil {
 		Customer bill = new Customer(2, "Bill");
 		Customer joe = new Customer(3, "Joe");
 
-		StockItem milk = new StockItem(1, "Milk", 100, 50, "gallon");
-		StockItem chicken = new StockItem(2, "Chicken", 100, 50, "kg");
-		StockItem egg = new StockItem(3, "Egg", 100, 50, "number");
-		StockItem apple = new StockItem(4, "Apple", 100, 50, "number");
-		StockItem orange = new StockItem(5, "Orange", 100, 50, "number");
+		StockItem milk = new StockItem(1, "Milk", 100, 50, Unit.GALLON);
+		StockItem chicken = new StockItem(2, "Chicken", 100, 50, Unit.KG);
+		StockItem egg = new StockItem(3, "Egg", 100, 50, Unit.NO);
+		StockItem apple = new StockItem(4, "Apple", 100, 50, Unit.NO);
+		StockItem orange = new StockItem(5, "Orange", 100, 50, Unit.NO);
 
 		OrderItem milkOrder1 = new OrderItem(12, milk);
 		OrderItem chickenOrder1 = new OrderItem(2, chicken);
@@ -82,6 +84,11 @@ public class InventoryUtil {
 		purchaseOrder2.setShipDate(new Date(time + 2 * day));
 		purchaseOrder3.setShipDate(new Date(time + 5 * day));
 
+		System.out.println("Purchase Orders are displayed: ");
+		System.out.println(purchaseOrder1);
+		System.out.println(purchaseOrder1);
+		System.out.println(purchaseOrder1);
+
 		jamie.setPhoneNumbers("1111111111", "1111111111", "1111111111");
 		jamie.setPrintingAddress("11", "11", "11", "11");
 		bill.setPhoneNumbers("22222222", "22222222", "2222222222");
@@ -92,17 +99,19 @@ public class InventoryUtil {
 		jamie.setPurchaseOrder(new PurchaseOrder[] { purchaseOrder1, purchaseOrder3 });
 		bill.setPurchaseOrder(new PurchaseOrder[] { purchaseOrder2 });
 
-		System.out.println("Details of total sales: ");
+		System.out.println("Total sales of a customer: ");
 		for (Customer cust : new Customer[] { jamie, bill, joe }) {
 			System.out.println(cust.getTotalSales());
 		}
-		
-		System.out.println("Details of customers: ");
-		for (Customer cust : new Customer[] { jamie, bill, joe }) {
-			System.out.println();
-			System.out.println(cust);
-			System.out.println();
 
+		System.out.println("Customers: ");
+		for (Customer cust : new Customer[] { jamie, bill, joe }) {
+			System.out.println(cust);
+		}
+
+		System.out.println("Invoices: ");
+		for (Customer cust : new Customer[] { jamie, bill, joe }) {
+			cust.printInvoice();
 		}
 
 	}

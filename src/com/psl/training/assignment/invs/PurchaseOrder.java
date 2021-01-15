@@ -45,8 +45,10 @@ public class PurchaseOrder {
 
 	@Override
 	public String toString() {
-		return "\n\nPurchaseOrder\n[poNumber=" + poNumber + ",\n orderDate=" + orderDate + ",\n shipDate=" + shipDate
-				+ ",\n orderItems=" + Arrays.toString(orderItems) + "\n]";
+		return "PurchaseOrder [poNumber=" + poNumber + ", orderDate=" + orderDate + ", shipDate=" + shipDate
+				+ ", orderItems=" + Arrays.toString(orderItems) + "]";
 	}
+
+	
 
 }
