@@ -80,14 +80,14 @@ public class InventoryUtil {
 
 		long time = System.currentTimeMillis();
 		long day = 24 * 60 * 60 * 1000;
-		purchaseOrder1.setShipDate(new Date(time));
+		purchaseOrder1.setShipDate(new Date(time + 1 * day));
 		purchaseOrder2.setShipDate(new Date(time + 2 * day));
 		purchaseOrder3.setShipDate(new Date(time + 5 * day));
 
 		System.out.println("Purchase Orders are displayed: ");
 		System.out.println(purchaseOrder1);
-		System.out.println(purchaseOrder1);
-		System.out.println(purchaseOrder1);
+		System.out.println(purchaseOrder2);
+		System.out.println(purchaseOrder3);
 
 		jamie.setPhoneNumbers("1111111111", "1111111111", "1111111111");
 		jamie.setPrintingAddress("11", "11", "11", "11");
@@ -101,7 +101,7 @@ public class InventoryUtil {
 
 		System.out.println("Total sales of a customer: ");
 		for (Customer cust : new Customer[] { jamie, bill, joe }) {
-			System.out.println(cust.getTotalSales());
+			System.out.println(cust.name.toUpperCase() + ":\t" + cust.getTotalSales());
 		}
 
 		System.out.println("Customers: ");

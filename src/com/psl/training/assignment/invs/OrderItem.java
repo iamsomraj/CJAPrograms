@@ -8,6 +8,7 @@ public class OrderItem {
 		super();
 		this.numberOfItems = numberOfItems;
 		this.stockItem = stockItem;
+		this.stockItem.quantity = this.stockItem.quantity - numberOfItems;
 	}
 
 	double getTotal() {
