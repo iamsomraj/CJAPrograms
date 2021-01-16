@@ -109,7 +109,7 @@ public class InventoryUtil {
 			System.out.println(cust);
 		}
 
-		System.out.println("Invoices: ");
+		System.out.println("Invoices: \n");
 		for (Customer cust : new Customer[] { jamie, bill, joe }) {
 			cust.printInvoice();
 		}

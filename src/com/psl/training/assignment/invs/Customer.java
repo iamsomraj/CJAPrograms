@@ -15,9 +15,9 @@ public class Customer {
 
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", name=" + name + ", homePhone=" + homePhone + ", cellPhone=" + cellPhone
-				+ ", workPhone=" + workPhone + ", street=" + street + ", city=" + city + ", state=" + state + ", zip="
-				+ zip + ", purchaseOrders=" + Arrays.toString(purchaseOrders) + "]";
+		return "Customer [id: " + id + ", " + name + ", phones: " + homePhone + " / " + cellPhone
+				+ " / " + workPhone + ", address: " + street + " " + city + " " + state + " "
+				+ zip + ", Orders: " + Arrays.toString(purchaseOrders) + "]";
 	}
 
 	void printPhoneNumbers() {

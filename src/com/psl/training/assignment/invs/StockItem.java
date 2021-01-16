@@ -30,8 +30,8 @@ public class StockItem {
 
 	@Override
 	public String toString() {
-		return "StockItem [itemNumber=" + itemNumber + ", itemDescription=" + itemDescription + ", itemPrice="
-				+ itemPrice + ", quantity=" + quantity + ", unit=" + unit + "]";
+		return "StockItem [id: " + itemNumber + ", desc: " + itemDescription + ", price: " + itemPrice + ", qty: "
+				+ quantity + " " + unit + "]";
 	}
 
 	int getQuantity() {

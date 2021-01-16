@@ -16,9 +16,8 @@ public class OrderItem {
 
 	@Override
 	public String toString() {
-		return "OrderItem [numberOfItems=" + numberOfItems + ", stockItem=" + stockItem + "]";
+		return "OrderItem [items: " + numberOfItems + " stock item: " + stockItem + ", total price: " + getTotal()
+				+ "]";
 	}
-
-
 
 }
