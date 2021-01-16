@@ -15,6 +15,7 @@ I have created this repository for Core Java Training assignments. This reposito
 9. Case Study [Canvas](/src/com/psl/training/assignment/csoops/canvas) [Shapes](/src/com/psl/training/assignment/csoops/shapes) [CanvasUtil](/src/com/psl/training/assignment/csoops/test/CanvasUtil.java)
 10. [OOPS - Inventory Management System](/src/com/psl/training/assignment/invs)
 11. [Exception Handling - Contact](/src/com/psl/training/assignment/excephand)
+12. [Exception Handling - File - Movies](/src/com/psl/training/assignment/excephand/file/FileReadUtil.java)
 
 ## Developer
 
