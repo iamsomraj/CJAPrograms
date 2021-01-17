@@ -50,6 +50,7 @@ public class InventoryUtil {
 		Customer bill = new Customer(2, "Bill");
 		Customer joe = new Customer(3, "Joe");
 
+		System.out.println("Somraj's Inventory System:");
 		StockItem milk = new StockItem(1, "Milk", 100, 50, Unit.GALLON);
 		StockItem chicken = new StockItem(2, "Chicken", 100, 50, Unit.KG);
 		StockItem egg = new StockItem(3, "Egg", 100, 50, Unit.NO);
@@ -62,20 +63,21 @@ public class InventoryUtil {
 
 		OrderItem[] orders1 = new OrderItem[] { milkOrder1, chickenOrder1, eggOrder1 };
 		PurchaseOrder purchaseOrder1 = new PurchaseOrder(orders1);
-		purchaseOrder1.create(1, new Date());
 
 		OrderItem appleOrder2 = new OrderItem(5, apple);
 		OrderItem orangeOrder2 = new OrderItem(10, orange);
 
 		OrderItem[] orders2 = new OrderItem[] { appleOrder2, orangeOrder2 };
 		PurchaseOrder purchaseOrder2 = new PurchaseOrder(orders2);
-		purchaseOrder2.create(2, new Date());
 
 		OrderItem chickenOrder3 = new OrderItem(5, chicken);
 		OrderItem appleOrder3 = new OrderItem(10, apple);
 
 		OrderItem[] orders3 = new OrderItem[] { chickenOrder3, appleOrder3 };
 		PurchaseOrder purchaseOrder3 = new PurchaseOrder(orders3);
+
+		purchaseOrder1.create(1, new Date());
+		purchaseOrder2.create(2, new Date());
 		purchaseOrder3.create(3, new Date());
 
 		long time = System.currentTimeMillis();
@@ -90,18 +92,18 @@ public class InventoryUtil {
 		System.out.println(purchaseOrder3);
 
 		jamie.setPhoneNumbers("1111111111", "1111111111", "1111111111");
-		jamie.setPrintingAddress("11", "11", "11", "11");
-		bill.setPhoneNumbers("22222222", "22222222", "2222222222");
-		bill.setPrintingAddress("22", "22", "22", "22");
+		jamie.setPrintingAddress("abc", "abc", "abc", "abc");
+		bill.setPhoneNumbers("2222222222", "2222222222", "2222222222");
+		bill.setPrintingAddress("def", "def", "def", "def");
 		joe.setPhoneNumbers("3333333333", "3333333333", "3333333333");
-		joe.setPrintingAddress("33", "33", "33", "33");
+		joe.setPrintingAddress("xyz", "xyz", "xyz", "xyz");
 
 		jamie.setPurchaseOrder(new PurchaseOrder[] { purchaseOrder1, purchaseOrder3 });
 		bill.setPurchaseOrder(new PurchaseOrder[] { purchaseOrder2 });
 
 		System.out.println("Total sales of a customer: ");
 		for (Customer cust : new Customer[] { jamie, bill, joe }) {
-			System.out.println(cust.name.toUpperCase() + ":\t" + cust.getTotalSales());
+			System.out.println(cust.name.toUpperCase() + ":\t$" + cust.getTotalSales());
 		}
 
 		System.out.println("Customers: ");
@@ -109,7 +111,7 @@ public class InventoryUtil {
 			System.out.println(cust);
 		}
 
-		System.out.println("Invoices: \n");
+		System.out.println("Invoices: ");
 		for (Customer cust : new Customer[] { jamie, bill, joe }) {
 			cust.printInvoice();
 		}

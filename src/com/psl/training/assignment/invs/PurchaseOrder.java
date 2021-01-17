@@ -32,11 +32,13 @@ public class PurchaseOrder {
 
 	void setShipDate(Date date) {
 		this.shipDate = date;
+		System.out.println("Purchase order: " + poNumber + " shipped at: " + this.shipDate);
 	}
 
 	void create(int poNumber, Date date) {
 		this.poNumber = poNumber;
 		this.orderDate = date;
+		System.out.println("Purchase order: " + poNumber + " created at: " + this.orderDate);
 	}
 
 	OrderItem[] getItems() {
@@ -45,10 +47,8 @@ public class PurchaseOrder {
 
 	@Override
 	public String toString() {
-		return "PurchaseOrder [order id: " + poNumber + ", " + orderDate + " - " + shipDate
-				+ " items: " + Arrays.toString(orderItems) + "]";
+		return "PurchaseOrder [order id: " + poNumber + ", " + orderDate + " - " + shipDate + ", items: "
+				+ Arrays.toString(orderItems) + "]";
 	}
-
-	
 
 }

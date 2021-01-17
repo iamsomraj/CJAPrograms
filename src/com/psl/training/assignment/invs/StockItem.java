@@ -26,6 +26,8 @@ public class StockItem {
 		} else if (unit == Unit.NO) {
 			this.unit = "numbers";
 		}
+		System.out.println(this.itemDescription + "\twith id: " + this.itemNumber + " is available at $" + this.itemPrice
+				+ " for " + this.quantity + " (" + this.unit + ")");
 	}
 
 	@Override
