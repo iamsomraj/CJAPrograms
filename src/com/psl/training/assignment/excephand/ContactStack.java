@@ -51,4 +51,16 @@ public class ContactStack {
 		System.out.println("Top: " + top);
 	}
 
+	void display() throws Exception {
+		if (isEmpty()) {
+			throw new Exception("Underflow Exception: stack is empty");
+		}
+		int topPointer = this.top;
+		System.out.println("Top is at: " + topPointer);
+		System.out.println();
+		for (int i = topPointer; i >= 0; i--) {
+			System.out.println(stack[i]);
+		}
+	}
+
 }

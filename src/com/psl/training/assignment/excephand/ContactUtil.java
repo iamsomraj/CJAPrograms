@@ -10,7 +10,7 @@ public class ContactUtil {
 		System.out.println("Stack console: ");
 		Scanner sc = new Scanner(System.in);
 		do {
-			System.out.println("\nEnter 1 for PUSH:\nEnter 2 for POP:\nEnter 3 for EXIT:");
+			System.out.println("\nEnter 1 for PUSH:\nEnter 2 for POP:\nEnter 3 for DISPLAY:\nEnter 4 for EXIT:");
 			ch = Integer.parseInt(sc.nextLine());
 			switch (ch) {
 			case 1:
@@ -51,6 +51,14 @@ public class ContactUtil {
 				}
 				break;
 			case 3:
+				System.out.println("Display: ");
+				try {
+					contactStack.display();
+				} catch (Exception e) {
+					System.out.println(e.getMessage());
+				}
+				break;
+			case 4:
 				System.out.println("Exiting.....");
 				System.exit(033670);
 			}

@@ -77,19 +77,19 @@ public class Contact {
 
 	public boolean validate() throws Exception {
 		if (this.firstName != null && this.lastName != null && this.dateOfBirth != null && this.email != null) {
-			String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
+			String regex = "[A-Za-z0-9.]+@[A-Za-z0-9.]+[A-Za-z]";
 			Pattern pattern = Pattern.compile(regex);
 			Matcher matcher = pattern.matcher(email);
 			if (matcher.matches()) {
 				if (this.telephoneNumber != null || this.mobileNumber != null) {
 					return true;
 				} else {
-					throw new Exception("Invalid Contact Exception : numbers are missing");				
+					throw new Exception("Invalid Contact Exception : numbers are missing");
 				}
 			} else {
 				throw new Exception("Invalid Contact Exception : email id is not valid");
 			}
-		} else {			
+		} else {
 			throw new Exception("Invalid Contact Exception : fields are missing");
 		}
 	}
