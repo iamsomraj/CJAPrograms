@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-01-18T06:40:27.263903400Z</date>
+  <millis>1610952027263</millis>
+  <nanos>903400</nanos>
+  <sequence>0</sequence>
+  <logger>com.psl.training.assignment.calc.Calculator</logger>
+  <level>INFO</level>
+  <class>com.psl.training.assignment.calc.Calculator</class>
+  <method>div</method>
+  <thread>1</thread>
+  <message>Exception: / by zero</message>
+</record>
