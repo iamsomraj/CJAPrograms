@@ -18,6 +18,7 @@ I have created this repository for Core Java Training assignments. This reposito
 12. [Exception Handling - File - Movies](/src/com/psl/training/assignment/excephand/file/FileReadUtil.java)
 13. [Calculator](/src/com/psl/training/assignment/calc)
 14. [Employee - Collections API](/src/com/psl/training/assignment/empcoll/EmployeeUtil.java)
+15. [Collection Assignments](/src/com/psl/training/assignment/collections)
 
 ## Developer
 
