@@ -3,6 +3,17 @@ package com.psl.training.assignment.collections.colmaputil;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**
+ * Date 21.1.21 Java Assignments Write a method that takes a string and returns
+ * the number of unique characters in the string. Pass a string with the same
+ * character sequence several times to the method. The counting operation is
+ * time consuming so the method should cache the results, so that when the
+ * method is given a string previously encountered, it will simply retrieve the
+ * stored result. Use collections and maps where appropriate.
+ * 
+ * @author Somraj Mukherjee
+ *
+ */
 public class ColMapUtil {
 
 	public static LinkedHashMap<String, Integer> cachedResults = new LinkedHashMap<>();
@@ -56,7 +67,6 @@ public class ColMapUtil {
 				+ getUniqueCharNumbers("aaaaaabbbbbbbbfffffffffghhhhhhhhiiiiijjjjjllllllxhhhuiiiioeeeekrrrrrrrqsddd"));
 		end = System.currentTimeMillis();
 		System.out.println("Time taken: " + (end - start) + " miliseconds");
-		
 
 	}
 
