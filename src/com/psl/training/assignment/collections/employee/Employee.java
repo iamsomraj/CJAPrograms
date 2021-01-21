@@ -1,42 +1,25 @@
 package com.psl.training.assignment.collections.employee;
 
 import java.sql.Date;
+import java.util.Arrays;
 
 public class Employee implements Comparable<Employee> {
-	@Override
-	public int compareTo(Employee o) {
-		if (this.empId < o.empId) {
-			return -1;
-		} else if (this.empId < o.empId) {
-			return 1;
-		} else {
-			return 0;
-		}
-	}
 
 	private int empId;
 	private String empName;
 	private String dept;
 	private Date joiningDate;
 	private String location;
+	private Vehicle[] vehicles;
 
-	public Employee(int empId, String empName, String dept, Date joiningDate, String location) {
+	public Employee(int empId, String empName, String dept, Date joiningDate, String location, Vehicle[] vehicles) {
 		super();
 		this.empId = empId;
 		this.empName = empName;
 		this.dept = dept;
 		this.joiningDate = joiningDate;
 		this.location = location;
-	}
-
-	public Employee() {
-		super();
-	}
-
-	@Override
-	public String toString() {
-		return "Employee [empId=" + empId + ", empName=" + empName + ", dept=" + dept + ", joiningDate=" + joiningDate
-				+ ", location=" + location + "]";
+		this.vehicles = vehicles;
 	}
 
 	/**
@@ -109,6 +92,31 @@ public class Employee implements Comparable<Employee> {
 		this.location = location;
 	}
 
+	/**
+	 * @return the vehicles
+	 */
+	public Vehicle[] getVehicles() {
+		return vehicles;
+	}
+
+	/**
+	 * @param vehicles the vehicles to set
+	 */
+	public void setVehicles(Vehicle[] vehicles) {
+		this.vehicles = vehicles;
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [empId=" + empId + ", empName=" + empName + ", dept=" + dept + ", joiningDate=" + joiningDate
+				+ ", location=" + location + ", vehicles=" + Arrays.toString(vehicles) + "]";
+	}
+
+	@Override
+	public int compareTo(Employee o) {
+		return this.empId - o.empId;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -118,6 +126,7 @@ public class Employee implements Comparable<Employee> {
 		result = prime * result + ((empName == null) ? 0 : empName.hashCode());
 		result = prime * result + ((joiningDate == null) ? 0 : joiningDate.hashCode());
 		result = prime * result + ((location == null) ? 0 : location.hashCode());
+		result = prime * result + Arrays.hashCode(vehicles);
 		return result;
 	}
 
@@ -151,6 +160,8 @@ public class Employee implements Comparable<Employee> {
 			if (other.location != null)
 				return false;
 		} else if (!location.equals(other.location))
+			return false;
+		if (!Arrays.equals(vehicles, other.vehicles))
 			return false;
 		return true;
 	}

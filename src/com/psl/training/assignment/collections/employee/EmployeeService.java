@@ -12,11 +12,28 @@ public class EmployeeService {
 	}
 
 	public EmployeeService() {
-		employeeList.add(new Employee(generateEmployeeId(), "Somraj", "a", Date.valueOf("2020-12-16"), "a"));
-		employeeList.add(new Employee(generateEmployeeId(), "Barshan", "b", Date.valueOf("2020-12-16"), "b"));
-		employeeList.add(new Employee(generateEmployeeId(), "Sayak", "c", Date.valueOf("2020-12-16"), "c"));
-		employeeList.add(new Employee(generateEmployeeId(), "Dipanjan", "c", Date.valueOf("2020-12-16"), "c"));
-		employeeList.add(new Employee(generateEmployeeId(), "Rest", "d", Date.valueOf("2020-12-16"), "d"));
+
+		Vehicle maruti = new Vehicle("Maruti", String.valueOf(Math.floor(Math.random() * 10000) + 2355));
+		Vehicle tata = new Vehicle("Tata", String.valueOf(Math.floor(Math.random() * 10000) + 2355));
+		Vehicle honda = new Vehicle("Honda", String.valueOf(Math.floor(Math.random() * 10000) + 2355));
+		Vehicle tesla = new Vehicle("Tesla", String.valueOf(Math.floor(Math.random() * 10000) + 2355));
+
+		Vehicle[] somrajVehicles = new Vehicle[] { maruti, tesla };
+		Vehicle[] barshanVehicles = new Vehicle[] { honda, tesla };
+		Vehicle[] sayakVehicles = new Vehicle[] { tata, tesla };
+		Vehicle[] restVehicles = new Vehicle[] { maruti };
+		Vehicle[] dipanjanVehicles = new Vehicle[] { maruti, tesla, honda };
+
+		employeeList.add(
+				new Employee(generateEmployeeId(), "Somraj", "a", Date.valueOf("2020-12-16"), "a", somrajVehicles));
+		employeeList.add(
+				new Employee(generateEmployeeId(), "Barshan", "b", Date.valueOf("2020-12-16"), "b", barshanVehicles));
+		employeeList
+				.add(new Employee(generateEmployeeId(), "Sayak", "c", Date.valueOf("2020-12-16"), "c", sayakVehicles));
+		employeeList.add(
+				new Employee(generateEmployeeId(), "Dipanjan", "d", Date.valueOf("2020-12-16"), "d", dipanjanVehicles));
+		employeeList
+				.add(new Employee(generateEmployeeId(), "Rest", "e", Date.valueOf("2020-12-16"), "e", restVehicles));
 	}
 
 	public List<Employee> getEmployeeList() {

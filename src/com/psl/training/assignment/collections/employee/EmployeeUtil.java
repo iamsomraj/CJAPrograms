@@ -20,7 +20,10 @@ public class EmployeeUtil {
 
 	public static void main(String[] args) {
 		EmployeeService employeeService = new EmployeeService();
-		Employee somraj = new Employee(100, "Somraj", "a", Date.valueOf("2020-12-16"), "a");
+		Vehicle maruti = new Vehicle("Maruti", String.valueOf(Math.floor(Math.random() * 10000) + 2355));
+		Vehicle tesla = new Vehicle("Tesla", String.valueOf(Math.floor(Math.random() * 10000) + 2355));
+		Vehicle[] somrajVehicles = new Vehicle[] { maruti, tesla };
+		Employee somraj = new Employee(100, "Somraj", "a", Date.valueOf("2020-12-16"), "a", somrajVehicles);
 		System.out.println("The employees are: ");
 		System.out.println(employeeService);
 		System.out.println("The employee detail one by one: ");
