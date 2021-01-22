@@ -1,9 +1,14 @@
 package com.psl.training.assignment.collections.citystatemap;
 
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 
 /**
  * Date 21.1.21 Java Assignments Write a class CityStateMap by using child class
@@ -29,26 +34,58 @@ import java.util.Set;
  *
  */
 public class CityStateMap {
-	private LinkedHashMap<String, String> cityStateMap = new LinkedHashMap<String, String>();
 
-	public CityStateMap() {
+	private String fileName = "src/com/psl/training/assignment/collections/citystatemap/data.txt";
+	private TreeMap<String, String> cityStateMap = new TreeMap<String, String>();
+
+	public CityStateMap() throws Exception {
 		super();
-		/**
-		 * Fetch the values from file
-		 */
-		add("Kolkata", "West Bengal");
-		add("Pune", "Maharashtra");
-		add("Mumbai", "Maharashtra");
-		add("Powai", "Maharashtra");
-		add("Jaipur", "Rajasthan");
-		add("Bangalore", "Karnataka");
-		add("Sodepur", "West Bengal");
+		FileReader fileReader = null;
+		String fileContent = "";
+		try {
+			fileReader = new FileReader(fileName);
+			int ch;
+			while ((ch = fileReader.read()) != -1) {
+				fileContent += (char) ch;
+			}
+			String[] records = fileContent.split("\n");
+			for (String rec : records) {
+				String datas[] = rec.split(",");
+				add(datas[0].trim(), datas[1].trim());
+			}
+			fileReader.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void add(String city, String name) {
 		this.cityStateMap.put(city.toUpperCase(), name.toUpperCase());
 		System.out
 				.println("Value for city " + city.toUpperCase() + " is: " + this.cityStateMap.get(city.toUpperCase()));
+		try {
+			store();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void store() throws Exception {
+		FileWriter fileWriter = null;
+		try {
+			fileWriter = new FileWriter(fileName);
+			String fileContent = "";
+			for (Map.Entry<String, String> map : this.cityStateMap.entrySet()) {
+				String key = map.getKey();
+				String value = map.getValue();
+				String line = key.trim().toUpperCase() + "," + value.trim().toUpperCase() + "\n";
+				fileContent += line;
+			}
+			fileWriter.write(fileContent.substring(0, fileContent.length() - 1));
+			fileWriter.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public Set<String> getAllCity() {
