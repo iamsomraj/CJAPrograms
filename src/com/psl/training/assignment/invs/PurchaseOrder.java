@@ -1,7 +1,7 @@
 package com.psl.training.assignment.invs;
 
 import java.util.Arrays;
-import java.util.Date;
+import java.sql.Date;
 
 public class PurchaseOrder {
 	int poNumber;

@@ -1,6 +1,7 @@
 package com.psl.training.assignment.invs;
 
 import java.io.FileReader;
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,12 +58,33 @@ public class CustomerService {
 	public PurchaseOrder[] findOrdersPlacedByCustomer(int customerId) {
 		Customer customer = null;
 		for (Customer cust : customers) {
-			if (cust.id == customerId) {
+			if (cust.getId() == customerId) {
 				customer = cust;
 				break;
 			}
 		}
 		return customer.purchaseOrders.length == 0 ? null : customer.purchaseOrders;
+	}
+
+	public PurchaseOrder[] findOrdersToBeShippedOn(Date findDate) {
+		List<PurchaseOrder> orders = new ArrayList<PurchaseOrder>();
+		for (Customer cust : customers) {
+			PurchaseOrder[] arrayOfOrders = cust.getPurchaseOrders();
+			if (arrayOfOrders != null) {
+				for (PurchaseOrder ord : arrayOfOrders) {
+					if (ord.shipDate.compareTo(findDate) == 0) {
+						orders.add(ord);
+					}
+				}
+			}
+		}
+		PurchaseOrder[] fetchedOrders = new PurchaseOrder[orders.size()];
+		int k = 0;
+		for (PurchaseOrder prd : orders) {
+			fetchedOrders[k] = prd;
+			k++;
+		}
+		return fetchedOrders;
 	}
 
 }

@@ -1,7 +1,7 @@
 package com.psl.training.assignment.invs;
 
 import java.util.Arrays;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 import com.psl.training.assignment.invs.StockItem.Unit;
@@ -84,15 +84,13 @@ public class InventoryUtil {
 		OrderItem[] orders3 = new OrderItem[] { chickenOrder3, appleOrder3 };
 		PurchaseOrder purchaseOrder3 = new PurchaseOrder(orders3);
 
-		purchaseOrder1.create(1, new Date());
-		purchaseOrder2.create(2, new Date());
-		purchaseOrder3.create(3, new Date());
+		purchaseOrder1.create(1, Date.valueOf("2020-10-5"));
+		purchaseOrder2.create(2, Date.valueOf("2020-10-7"));
+		purchaseOrder3.create(3, Date.valueOf("2020-10-9"));
 
-		long time = System.currentTimeMillis();
-		long day = 24 * 60 * 60 * 1000;
-		purchaseOrder1.setShipDate(new Date(time + 1 * day));
-		purchaseOrder2.setShipDate(new Date(time + 2 * day));
-		purchaseOrder3.setShipDate(new Date(time + 5 * day));
+		purchaseOrder1.setShipDate(Date.valueOf("2020-10-11"));
+		purchaseOrder2.setShipDate(Date.valueOf("2020-10-15"));
+		purchaseOrder3.setShipDate(Date.valueOf("2020-10-19"));
 
 		System.out.println("Purchase Orders are displayed: ");
 		System.out.println(purchaseOrder1);
@@ -125,7 +123,14 @@ public class InventoryUtil {
 		}
 
 		System.out.println("Find orders placed by customer: ");
-		System.out.println(Arrays.toString(customerService.findOrdersPlacedByCustomer(1)));
+		int findId = 1;
+		System.out.println("Orders of a customer with id " + findId + ": ");
+		System.out.println(Arrays.toString(customerService.findOrdersPlacedByCustomer(findId)));
+
+		System.out.println("Find orders placed on a date: ");
+		Date findDate = Date.valueOf("2020-10-15");
+		System.out.println("Orders shipped on " + findDate + ": ");
+		System.out.println(Arrays.toString(customerService.findOrdersToBeShippedOn(findDate)));
 
 	}
 
