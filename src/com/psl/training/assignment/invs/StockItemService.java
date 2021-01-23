@@ -45,7 +45,7 @@ public class StockItemService {
 			}
 			if (fileContent.isBlank() || fileContent.isEmpty()) {
 				file.close();
-				throw new InsufficientDataException("Data is insufficient");
+				throw new InsufficientDataException("Data is insufficient: Stock Item");
 			}
 			String items[] = fileContent.split("\n");
 			for (String item : items) {
@@ -53,9 +53,10 @@ public class StockItemService {
 				StockItem fetchedItem = createStockItem(values);
 				this.stockItems.add(fetchedItem);
 			}
-			System.out.println("Data fetched succesfully");
+			System.out.println("Data fetched succesfully: Stock Item");
 			file.close();
 		} catch (Exception e) {
+			System.out.println("Data fetch failed: Stock Item");
 			System.out.println(e.getMessage());
 		}
 	}

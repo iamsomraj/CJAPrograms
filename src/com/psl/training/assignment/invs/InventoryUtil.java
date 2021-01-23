@@ -1,5 +1,6 @@
 package com.psl.training.assignment.invs;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -47,11 +48,15 @@ public class InventoryUtil {
 
 	public static void main(String[] args) {
 
-		Customer jamie = new Customer(1, "Jamie");
-		Customer bill = new Customer(2, "Bill");
-		Customer joe = new Customer(3, "Joe");
-
 		System.out.println("Somraj's Inventory System:");
+
+		CustomerService customerService = new CustomerService();
+		List<Customer> customerList = customerService.getCustomers();
+
+		Customer jamie = customerList.get(0);
+		Customer bill = customerList.get(0);
+		Customer joe = customerList.get(0);
+
 		StockItemService stockItemService = new StockItemService();
 		List<StockItem> listOfStockItems = stockItemService.getStockItems();
 		StockItem milk = listOfStockItems.get(0);
@@ -118,6 +123,9 @@ public class InventoryUtil {
 		for (Customer cust : new Customer[] { jamie, bill, joe }) {
 			cust.printInvoice();
 		}
+
+		System.out.println("Find orders placed by customer: ");
+		System.out.println(Arrays.toString(customerService.findOrdersPlacedByCustomer(1)));
 
 	}
 
