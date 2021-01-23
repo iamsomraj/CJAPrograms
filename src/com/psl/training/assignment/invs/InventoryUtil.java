@@ -1,6 +1,7 @@
 package com.psl.training.assignment.invs;
 
 import java.util.Date;
+import java.util.List;
 
 import com.psl.training.assignment.invs.StockItem.Unit;
 
@@ -51,11 +52,13 @@ public class InventoryUtil {
 		Customer joe = new Customer(3, "Joe");
 
 		System.out.println("Somraj's Inventory System:");
-		StockItem milk = new StockItem(1, "Milk", 100, 50, Unit.GALLON);
-		StockItem chicken = new StockItem(2, "Chicken", 100, 50, Unit.KG);
-		StockItem egg = new StockItem(3, "Egg", 100, 50, Unit.NO);
-		StockItem apple = new StockItem(4, "Apple", 100, 50, Unit.NO);
-		StockItem orange = new StockItem(5, "Orange", 100, 50, Unit.NO);
+		StockItemService stockItemService = new StockItemService();
+		List<StockItem> listOfStockItems = stockItemService.getStockItems();
+		StockItem milk = listOfStockItems.get(0);
+		StockItem chicken = listOfStockItems.get(1);
+		StockItem egg = listOfStockItems.get(2);
+		StockItem apple = listOfStockItems.get(3);
+		StockItem orange = listOfStockItems.get(4);
 
 		OrderItem milkOrder1 = new OrderItem(12, milk);
 		OrderItem chickenOrder1 = new OrderItem(2, chicken);
