@@ -46,6 +46,10 @@ import com.psl.training.assignment.invs.StockItem.Unit;
  */
 public class InventoryUtil {
 
+	public static String generateNumber() {
+		return String.valueOf((long) Math.floor(Math.random() * 1000000000L + 7000000000L));
+	}
+
 	public static void main(String[] args) {
 
 		System.out.println("Somraj's Inventory System:");
@@ -84,7 +88,7 @@ public class InventoryUtil {
 
 		OrderItem[] orders3 = new OrderItem[] { chickenOrder3, appleOrder3 };
 		PurchaseOrder purchaseOrder3 = new PurchaseOrder(orders3);
-		
+
 		OrderItem egg4 = new OrderItem(10, egg);
 
 		OrderItem[] orders4 = new OrderItem[] { egg4 };
@@ -106,13 +110,13 @@ public class InventoryUtil {
 		System.out.println(purchaseOrder3);
 		System.out.println(purchaseOrder4);
 
-		jamie.setPhoneNumbers("1111111111", "1111111111", "1111111111");
+		jamie.setPhoneNumbers(generateNumber(), generateNumber(), generateNumber());
 		jamie.setPrintingAddress("Rose Gardens", "Asansol", "West Bengal", "700523");
-		bill.setPhoneNumbers("2222222222", "2222222222", "2222222222");
+		bill.setPhoneNumbers(generateNumber(), generateNumber(), generateNumber());
 		bill.setPrintingAddress("Andheri", "Mumbai", "Maharashtra", "4054541");
-		joe.setPhoneNumbers("3333333333", "3333333333", "3333333333");
+		joe.setPhoneNumbers(generateNumber(), generateNumber(), generateNumber());
 		joe.setPrintingAddress("Patna", "Patna City", "Bihar", "962554");
-		somraj.setPhoneNumbers("1111111111", "1111111111", "1111111111");
+		somraj.setPhoneNumbers(generateNumber(), generateNumber(), generateNumber());
 		somraj.setPrintingAddress("Sodepur", "Kolkata", "West Bengal", "700110");
 
 		jamie.setPurchaseOrder(new PurchaseOrder[] { purchaseOrder1, purchaseOrder3 });
@@ -144,7 +148,7 @@ public class InventoryUtil {
 		System.out.println("Orders shipped on " + findDate + ": ");
 		System.out.println(Arrays.toString(customerService.findOrdersToBeShippedOn(findDate)));
 
-		System.out.println("Segregated Items with Customer Id against area/state: ");
+		System.out.println("Segregated Orders with Area: Customer Id = { Items }: ");
 		System.out.println(customerService.segregateOrderAndCustomerByArea());
 
 	}
