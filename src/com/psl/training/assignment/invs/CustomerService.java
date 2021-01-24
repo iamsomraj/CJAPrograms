@@ -92,12 +92,22 @@ public class CustomerService {
 		return fetchedOrders;
 	}
 
-	public LinkedHashMap<String, Integer> getCustomerIdByArea() {
-		LinkedHashMap<String, Integer> map = new LinkedHashMap<String, Integer>();
+	public Set<String> getAreas() {
+		Set<String> areas = new LinkedHashSet<String>();
 		for (Customer cust : customers) {
-			map.put(cust.getState(), cust.getId());
+			areas.add(cust.getState());
 		}
-		return map;
+		return areas;
+	}
+
+	public List<Integer> getCustomersByArea(String area) {
+		List<Integer> custList = new ArrayList<Integer>();
+		for (Customer cust : customers) {
+			if (area.equals(cust.getState())) {
+				custList.add(cust.getId());
+			}
+		}
+		return custList;
 	}
 
 	public ArrayList<String> getItemsFromPurchaseOrder(PurchaseOrder[] arr) {
@@ -117,15 +127,16 @@ public class CustomerService {
 	}
 
 	public LinkedHashMap<String, LinkedHashMap<Integer, ArrayList<String>>> segregateOrderAndCustomerByArea() {
+		Set<String> areas = getAreas();
 		LinkedHashMap<String, LinkedHashMap<Integer, ArrayList<String>>> result = new LinkedHashMap<String, LinkedHashMap<Integer, ArrayList<String>>>();
-		LinkedHashMap<String, Integer> areaAndIdMap = getCustomerIdByArea();
-		for (Map.Entry<String, Integer> map : areaAndIdMap.entrySet()) {
-			LinkedHashMap<Integer, ArrayList<String>> m2 = new LinkedHashMap<Integer, ArrayList<String>>();
-			String area = map.getKey();
-			Integer customerId = map.getValue();
-			ArrayList<String> items = getItemsFromPurchaseOrder(findOrdersPlacedByCustomer(customerId));
-			m2.put(customerId, items);
-			result.put(area, m2);
+		for (String ar : areas) {
+			List<Integer> customerList = getCustomersByArea(ar);
+			LinkedHashMap<Integer, ArrayList<String>> map = new LinkedHashMap<Integer, ArrayList<String>>();
+			for (Integer id : customerList) {
+				ArrayList<String> items = getItemsFromPurchaseOrder(findOrdersPlacedByCustomer(id));
+				map.put(id, items);
+			}
+			result.put(ar, map);
 		}
 		return result;
 

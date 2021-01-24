@@ -56,6 +56,7 @@ public class InventoryUtil {
 		Customer jamie = customerList.get(0);
 		Customer bill = customerList.get(1);
 		Customer joe = customerList.get(2);
+		Customer somraj = customerList.get(3);
 
 		StockItemService stockItemService = new StockItemService();
 		List<StockItem> listOfStockItems = stockItemService.getStockItems();
@@ -83,42 +84,53 @@ public class InventoryUtil {
 
 		OrderItem[] orders3 = new OrderItem[] { chickenOrder3, appleOrder3 };
 		PurchaseOrder purchaseOrder3 = new PurchaseOrder(orders3);
+		
+		OrderItem egg4 = new OrderItem(10, egg);
+
+		OrderItem[] orders4 = new OrderItem[] { egg4 };
+		PurchaseOrder purchaseOrder4 = new PurchaseOrder(orders4);
 
 		purchaseOrder1.create(1, Date.valueOf("2020-10-5"));
 		purchaseOrder2.create(2, Date.valueOf("2020-10-7"));
 		purchaseOrder3.create(3, Date.valueOf("2020-10-9"));
+		purchaseOrder4.create(4, Date.valueOf("2020-10-11"));
 
 		purchaseOrder1.setShipDate(Date.valueOf("2020-10-11"));
 		purchaseOrder2.setShipDate(Date.valueOf("2020-10-15"));
 		purchaseOrder3.setShipDate(Date.valueOf("2020-10-19"));
+		purchaseOrder4.setShipDate(Date.valueOf("2020-10-25"));
 
 		System.out.println("Purchase Orders are displayed: ");
 		System.out.println(purchaseOrder1);
 		System.out.println(purchaseOrder2);
 		System.out.println(purchaseOrder3);
+		System.out.println(purchaseOrder4);
 
 		jamie.setPhoneNumbers("1111111111", "1111111111", "1111111111");
-		jamie.setPrintingAddress("abc", "abc", "abc", "abc");
+		jamie.setPrintingAddress("Rose Gardens", "Asansol", "West Bengal", "700523");
 		bill.setPhoneNumbers("2222222222", "2222222222", "2222222222");
-		bill.setPrintingAddress("def", "def", "def", "def");
+		bill.setPrintingAddress("Andheri", "Mumbai", "Maharashtra", "4054541");
 		joe.setPhoneNumbers("3333333333", "3333333333", "3333333333");
-		joe.setPrintingAddress("xyz", "xyz", "xyz", "xyz");
+		joe.setPrintingAddress("Patna", "Patna City", "Bihar", "962554");
+		somraj.setPhoneNumbers("1111111111", "1111111111", "1111111111");
+		somraj.setPrintingAddress("Sodepur", "Kolkata", "West Bengal", "700110");
 
 		jamie.setPurchaseOrder(new PurchaseOrder[] { purchaseOrder1, purchaseOrder3 });
 		bill.setPurchaseOrder(new PurchaseOrder[] { purchaseOrder2 });
+		somraj.setPurchaseOrder(new PurchaseOrder[] { purchaseOrder4 });
 
 		System.out.println("Total sales of a customer: ");
-		for (Customer cust : new Customer[] { jamie, bill, joe }) {
+		for (Customer cust : new Customer[] { jamie, bill, joe, somraj }) {
 			System.out.println(cust.name.toUpperCase() + ":\t$" + cust.getTotalSales());
 		}
 
 		System.out.println("Customers: ");
-		for (Customer cust : new Customer[] { jamie, bill, joe }) {
+		for (Customer cust : new Customer[] { jamie, bill, joe, somraj }) {
 			System.out.println(cust);
 		}
 
 		System.out.println("Invoices: ");
-		for (Customer cust : new Customer[] { jamie, bill, joe }) {
+		for (Customer cust : new Customer[] { jamie, bill, joe, somraj }) {
 			cust.printInvoice();
 		}
 
