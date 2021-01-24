@@ -54,8 +54,8 @@ public class InventoryUtil {
 		List<Customer> customerList = customerService.getCustomers();
 
 		Customer jamie = customerList.get(0);
-		Customer bill = customerList.get(0);
-		Customer joe = customerList.get(0);
+		Customer bill = customerList.get(1);
+		Customer joe = customerList.get(2);
 
 		StockItemService stockItemService = new StockItemService();
 		List<StockItem> listOfStockItems = stockItemService.getStockItems();
@@ -131,6 +131,9 @@ public class InventoryUtil {
 		Date findDate = Date.valueOf("2020-10-15");
 		System.out.println("Orders shipped on " + findDate + ": ");
 		System.out.println(Arrays.toString(customerService.findOrdersToBeShippedOn(findDate)));
+
+		System.out.println("Segregated Items with Customer Id against area/state: ");
+		System.out.println(customerService.segregateOrderAndCustomerByArea());
 
 	}
 

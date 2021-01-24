@@ -3,7 +3,12 @@ package com.psl.training.assignment.invs;
 import java.io.FileReader;
 import java.util.Date;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class CustomerService {
 
@@ -63,7 +68,7 @@ public class CustomerService {
 				break;
 			}
 		}
-		return customer.purchaseOrders.length == 0 ? null : customer.purchaseOrders;
+		return customer.purchaseOrders;
 	}
 
 	public PurchaseOrder[] findOrdersToBeShippedOn(Date findDate) {
@@ -85,6 +90,45 @@ public class CustomerService {
 			k++;
 		}
 		return fetchedOrders;
+	}
+
+	public LinkedHashMap<String, Integer> getCustomerIdByArea() {
+		LinkedHashMap<String, Integer> map = new LinkedHashMap<String, Integer>();
+		for (Customer cust : customers) {
+			map.put(cust.getState(), cust.getId());
+		}
+		return map;
+	}
+
+	public ArrayList<String> getItemsFromPurchaseOrder(PurchaseOrder[] arr) {
+		ArrayList<String> listOfItems = new ArrayList<String>();
+		if (arr == null) {
+			return null;
+		}
+		for (int i = 0; i < arr.length; i++) {
+			PurchaseOrder purchaseOrder = arr[i];
+			OrderItem[] orderItems = purchaseOrder.orderItems;
+			for (int j = 0; j < orderItems.length; j++) {
+				OrderItem orderItem = orderItems[j];
+				listOfItems.add(orderItem.stockItem.itemDescription);
+			}
+		}
+		return listOfItems;
+	}
+
+	public LinkedHashMap<String, LinkedHashMap<Integer, ArrayList<String>>> segregateOrderAndCustomerByArea() {
+		LinkedHashMap<String, LinkedHashMap<Integer, ArrayList<String>>> result = new LinkedHashMap<String, LinkedHashMap<Integer, ArrayList<String>>>();
+		LinkedHashMap<String, Integer> areaAndIdMap = getCustomerIdByArea();
+		for (Map.Entry<String, Integer> map : areaAndIdMap.entrySet()) {
+			LinkedHashMap<Integer, ArrayList<String>> m2 = new LinkedHashMap<Integer, ArrayList<String>>();
+			String area = map.getKey();
+			Integer customerId = map.getValue();
+			ArrayList<String> items = getItemsFromPurchaseOrder(findOrdersPlacedByCustomer(customerId));
+			m2.put(customerId, items);
+			result.put(area, m2);
+		}
+		return result;
+
 	}
 
 }
