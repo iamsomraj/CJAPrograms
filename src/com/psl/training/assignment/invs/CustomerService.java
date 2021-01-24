@@ -110,6 +110,15 @@ public class CustomerService {
 		return custList;
 	}
 
+	public Customer getCustomerById(Integer id) {
+		for (Customer cust : customers) {
+			if (id == cust.getId()) {
+				return cust;
+			}
+		}
+		return null;
+	}
+
 	public ArrayList<String> getItemsFromPurchaseOrder(PurchaseOrder[] arr) {
 		ArrayList<String> listOfItems = new ArrayList<String>();
 		if (arr == null) {
@@ -139,7 +148,21 @@ public class CustomerService {
 			result.put(ar, map);
 		}
 		return result;
+	}
 
+	public LinkedHashMap<String, Double> getAreaWiseTotalBill() {
+		LinkedHashMap<String, Double> result = new LinkedHashMap<String, Double>();
+		LinkedHashMap<String, LinkedHashMap<Integer, ArrayList<String>>> map = segregateOrderAndCustomerByArea();
+		for (String area : map.keySet()) {
+			double totalBill = 0d;
+			LinkedHashMap<Integer, ArrayList<String>> idAndItem = map.get(area);
+			for (Integer id : idAndItem.keySet()) {
+				Customer cust = getCustomerById(id);
+				totalBill += cust.getTotalSales();
+			}
+			result.put(area, totalBill);
+		}
+		return result;
 	}
 
 }

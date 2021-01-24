@@ -151,6 +151,8 @@ public class InventoryUtil {
 		System.out.println("Segregated Orders with Area: Customer Id = { Items }: ");
 		System.out.println(customerService.segregateOrderAndCustomerByArea());
 
+		System.out.println("Area wise total bill amount: ");
+		System.out.println(customerService.getAreaWiseTotalBill());
 	}
 
 }
