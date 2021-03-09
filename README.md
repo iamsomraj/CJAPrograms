@@ -1,6 +1,6 @@
 # Core Java Assignments Programs
 
-I have created this repository for Core Java Training assignments. This repository contains many programs based on some problem statement.
+I have created this repository for Core Java Training assignments. This repository contains many programs based on some problem statement. This sample projects have helped me to prepare for the assessments.
 
 ## Contents
 
